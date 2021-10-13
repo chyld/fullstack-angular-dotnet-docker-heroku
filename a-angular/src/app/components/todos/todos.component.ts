@@ -30,7 +30,6 @@ export class TodosComponent implements OnInit {
         priority: this.priority.value,
       })
       .subscribe((res) => {
-        console.log(res);
         this.title.setValue('');
         this.due.setValue('');
         this.priority.setValue('');

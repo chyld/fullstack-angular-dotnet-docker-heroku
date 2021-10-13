@@ -1,3 +1,14 @@
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
+#form {
+  border: 1px solid #ccc;
+  padding: 25px;
+  background-color: salmon;
+}
+
+#todos {
+  margin-top: 15px;
+}
+
+#todos table {
+  border-collapse: collapse;
+  width: 70%;
 }

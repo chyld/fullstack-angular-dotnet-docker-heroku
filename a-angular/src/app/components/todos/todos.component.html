@@ -1,18 +1,36 @@
-<p>todos works!</p>
+<div id="form">
+  <label for="title">Name: </label>
+  <input id="title" type="text" [formControl]="title" />
+  <label for="due">Due: </label>
+  <input id="due" type="date" [formControl]="due" />
+  <label for="priority">Priority: </label>
+  <input id="priority" type="number" [formControl]="priority" />
+  <button (click)="addTodo()">Add Todo</button>
+</div>
 
-<label for="title">Name: </label>
-<input id="title" type="text" [formControl]="title" />
-<label for="due">Due: </label>
-<input id="due" type="date" [formControl]="due" />
-<label for="priority">Priority: </label>
-<input id="priority" type="number" [formControl]="priority" />
-<button (click)="addTodo()">Add Todo</button>
-
-<div>
-  <label>Todos</label>
-  <ul>
-    <li *ngFor="let todo of todos">
-      {{ todo.title }}
-    </li>
-  </ul>
+<div id="todos">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Open?</th>
+        <th>Title</th>
+        <th>Due</th>
+        <th>Priority</th>
+        <th>Comments</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.isOpen }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.due | date: "EEE, MMMM dd" }}</td>
+        <td>{{ todo.priority }}</td>
+        <td>{{ todo.comments.length }}</td>
+        <td>{{ todo.tags.length }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
