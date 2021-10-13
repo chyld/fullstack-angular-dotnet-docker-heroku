@@ -1,5 +1,6 @@
 #
 # to create a docker image
+# npm run build
 # docker build -t todo:v1.0.0 .
 #
 # to run
