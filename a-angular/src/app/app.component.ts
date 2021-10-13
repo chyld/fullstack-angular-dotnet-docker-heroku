@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'a-angular';
 
-  constructor(private http: HttpClient) {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.http.get(environment.API_BASE_URL + '/todos').subscribe((data) => {
-      console.log(data);
+    this.todoService.getTodos().subscribe((data) => {
+      console.log(data, 'lolololo');
     });
   }
 }
