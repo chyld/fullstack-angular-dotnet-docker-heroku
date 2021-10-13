@@ -1,7 +1,12 @@
 #form {
   border: 1px solid #ccc;
   padding: 25px;
-  background-color: salmon;
+  margin-top: 25px;
+  background-color: olivedrab;
+}
+
+#form button {
+  margin-left: 20px;
 }
 
 #todos {

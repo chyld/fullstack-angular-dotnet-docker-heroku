@@ -5,7 +5,9 @@
   <input id="due" type="date" [formControl]="due" />
   <label for="priority">Priority: </label>
   <input id="priority" type="number" [formControl]="priority" />
-  <button (click)="addTodo()">Add Todo</button>
+  <button mat-raised-button color="primary" (click)="addTodo()">
+    Add Todo
+  </button>
 </div>
 
 <div id="todos">
@@ -24,10 +26,10 @@
     <tbody>
       <tr *ngFor="let todo of todos">
         <td>{{ todo.id }}</td>
-        <td>{{ todo.isOpen }}</td>
+        <td>{{ todo.isOpen ? "Yes" : "No" }}</td>
         <td>{{ todo.title }}</td>
         <td>{{ todo.due | date: "EEE, MMMM dd" }}</td>
-        <td>{{ todo.priority }}</td>
+        <td>{{ todo.priority | priority }}</td>
         <td>{{ todo.comments.length }}</td>
         <td>{{ todo.tags.length }}</td>
       </tr>
