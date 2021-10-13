@@ -10,7 +10,7 @@ using web;
 namespace web.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20211011192212_Initial")]
+    [Migration("20211013011618_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
