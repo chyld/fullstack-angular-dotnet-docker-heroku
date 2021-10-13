@@ -11,6 +11,8 @@ namespace web
 {
   public class Startup
   {
+    private readonly string _policyName = "CorsPolicy";
+
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
@@ -29,6 +31,15 @@ namespace web
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "web", Version = "v1" });
       });
+      services.AddCors(opt =>
+      {
+        opt.AddPolicy(name: _policyName, builder =>
+          {
+            builder.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+          });
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +57,8 @@ namespace web
       app.UseStaticFiles();
 
       app.UseRouting();
+
+      app.UseCors(_policyName);
 
       app.UseAuthorization();
 
