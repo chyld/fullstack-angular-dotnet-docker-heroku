@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,6 +9,10 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   getTodos() {
-    return this.http.get(`${environment.API_BASE_URL}/todos`);
+    return this.http.get(`${env.API_BASE_URL}/todos`);
+  }
+
+  addTodo(todo: any) {
+    return this.http.post(`${env.API_BASE_URL}/todos`, todo);
   }
 }
